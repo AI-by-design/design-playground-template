@@ -1,77 +1,111 @@
-# Design Playground Template
+# Design Playground
 
-A ready-to-use template for building UI components with AI — without needing a local dev environment.
+A ready-to-use environment for designing with AI in your browser. No installs. No setup. No terminal commands to memorize.
 
-Open in GitHub Codespaces and start building in under 2 minutes. The design system contract is pre-wired so AI agents use what already exists instead of fabricating new styles.
+If you've ever wanted to prototype a UI with Claude or Copilot but got stuck on "how do I run this on my computer?" — this is for you.
 
-## What's inside
+## What this is, in one paragraph
 
-- **Next.js 15** + TypeScript + Tailwind v4 + App Router
-- **shadcn/ui** — 15 pre-installed primitives (button, card, dialog, sheet, tabs, and more)
-- **Primitiv** — design system contract layer; agents read `primitiv.contract.json` before generating components
-- **Forge skills** — `/plan`, `/design-thinking`, `/evaluate`, `/test-debug` Claude Code commands pre-loaded
-- **Cursor rules** — UX, UI, motion, stack, and git rules pre-configured
-- **Biome** — lint + format in one tool
+This is a template you copy with one click. It opens in your browser as a real coding environment (called a **Codespace**) with everything pre-installed: a working app, a design system, and an AI assistant that already understands your design system. You talk to the AI in plain English ("build me a pricing card"), it generates the component, and you see it live in the preview window. That's the whole loop.
 
-## Quick start
+You don't need to know how to code. You need to know what you want to build.
 
-### In GitHub Codespaces (recommended)
+---
 
-1. Click **Use this template** → **Open in a codespace**
-2. Wait ~60s for the container to start and `primitiv build` to run
-3. Run `bun dev` — the preview opens automatically on port 3000
-4. Start building with Claude Code or Cursor
+## Get started — what to actually click
 
-### Locally
+### Step 1 — Make your copy
 
-```bash
-git clone <your-repo>
-cd <your-repo>
-bun install
-primitiv build
+At the top of this page, click the green **Use this template** button → **Open in a codespace**.
+
+GitHub will start building your personal copy. A new browser tab opens.
+
+### Step 2 — Wait for the setup (~60–90 seconds)
+
+You'll see a screen that looks like a code editor. **Don't panic if nothing seems to happen** — the setup is running in the background. Things you'll see:
+
+- A bottom panel called **Terminal** opens. Lots of text scrolls past. This is normal.
+- A few red error toasts may pop up in the bottom-right corner — most commonly something about **Biome** or **server initialization failed**. **Ignore them.** They appear because the editor is faster than the setup. They go away on their own within a few seconds.
+- The bottom panel will eventually quiet down and show a prompt like:
+  ```
+  @yourname → /workspaces/design-playground-template (main) $
+  ```
+  When you see that idle prompt, the setup is done.
+
+### Step 3 — Start the app
+
+In the terminal at the bottom, type this and press Enter:
+
+```
 bun dev
 ```
 
-## How AI works in this template
+After a few seconds, a small popup appears bottom-right: **"Your application running on port 3000 is available."** Click **Open in Browser**. A new tab opens — that's your live app.
 
-`primitiv.contract.json` is generated from your `src/` folder and exposes your design tokens, components, and inferred rules via an MCP server (`.mcp.json`).
+You now have a real, running app that you can edit by talking to AI.
 
-Claude Code and Cursor read this contract before generating code — so they reference `bg-primary` instead of `bg-[#6366f1]`, and extend `<Button>` instead of building a new one from scratch.
+---
 
-To rebuild the contract after adding new tokens or components:
+## Your first build (the fun part)
 
-```bash
-primitiv build
-```
+Open the **chat panel** on the right side of the editor (looks like a chat bubble icon). It's the AI assistant.
 
-To check for drift (hardcoded values that bypass the contract):
+Try saying something like:
 
-```bash
-primitiv verify
-```
+> Build me a pricing card with three tiers — Starter, Pro, Enterprise. Use the existing button and card components.
 
-## Available skills (Claude Code)
+The AI will write the code, save it as a file, and the preview tab will update automatically. If you don't like something, just tell it — "make the Pro card stand out more" or "use a softer shadow."
 
-| Command | What it does |
+**Why this works without you doing anything:**
+
+This template already includes a **design system contract** — a file the AI reads before generating code. It knows what colors, spacing, and components already exist, so it uses them instead of inventing new ones. That's why your prototypes won't drift into 12 different shades of grey.
+
+---
+
+## What's already set up for you
+
+You don't need to do anything with this list — it's just here so you know what's running under the hood when someone asks.
+
+| Thing | What it does |
 |---|---|
-| `/plan` | Plan a feature before writing code |
-| `/design-thinking` | Explore UX options before committing |
-| `/evaluate` | Grade a component against design system rules |
-| `/test-debug` | Debug a UI problem systematically |
-| `/new-project` | Scaffold a new feature or page |
+| **Next.js** | The framework the app is built with |
+| **Tailwind** | The styling system |
+| **shadcn/ui** | A set of pre-built components (button, card, dialog, etc.) — 15 of them, ready to use |
+| **Primitiv** | The design system contract that the AI reads before generating code |
+| **Claude Code / Cursor skills** | Pre-loaded commands like `/plan`, `/evaluate`, `/design-thinking` |
 
-## Stack
+---
 
-| Tool | Version |
+## Things that look like errors but aren't
+
+| What you see | What's actually happening |
 |---|---|
-| Next.js | 15 |
-| React | 19 |
-| TypeScript | 5 |
-| Tailwind CSS | 4 |
-| shadcn/ui | latest |
-| Biome | latest |
-| Bun | 1.x |
-| Primitiv | latest |
+| Red toast: "biome client: couldn't create connection" | The code formatter loaded faster than the install. It fixes itself in ~1 second. |
+| Red toast: "Server initialization failed" (Biome) | Same as above. |
+| Terminal scrolling for ~60s | Setup is running. Be patient. |
+| "Building codespace..." at the top | The very first time loads slower. Future visits are faster. |
+| Port forwarding popups | Codespaces is connecting your running app to your browser. Click **Open in Browser** when it asks. |
+
+If you ever feel stuck, close everything and re-open the Codespace from the GitHub page. Nothing breaks — your work is saved.
+
+---
+
+## What to do next
+
+- **Talk to the AI** in the chat panel. Ask it to build pages, components, or even whole flows.
+- **Edit by description**: "make this section feel more premium," "use more whitespace," "match the style of the rest of the app."
+- **Use the slash commands**: type `/plan` in the chat to plan a feature before building, or `/evaluate` to check whether what you built fits the design system.
+- **Save your work**: When you're happy with something, click the **Source Control** icon on the left (looks like a branching arrow), type a short message, and click **Commit & Sync**. Your changes are now saved to your repo on GitHub.
+
+---
+
+## Glossary (skip if you already know)
+
+- **Codespace** — a complete coding environment that runs in your browser. You don't install anything on your computer.
+- **Terminal** — the black/grey panel at the bottom where you type commands. You'll only need it a few times.
+- **Port 3000** — where your running app lives. Codespaces makes it accessible via a special browser URL.
+- **MCP** — the connection between the AI and your design system. You don't need to configure it; it's already set up.
+- **Repo / Repository** — your project, stored on GitHub. Each "Use this template" gives you your own.
 
 ---
 
