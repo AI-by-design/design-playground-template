@@ -1,120 +1,159 @@
 # Design Playground
 
-A ready-to-use environment for designing with AI in your browser. No installs. No setup. No terminal commands to memorize.
+A sandbox where designers can play with AI and code without the pressure of touching production.
 
-If you've ever wanted to prototype a UI with AI but got stuck on "how do I run this on my computer?" — this is for you.
+You prompt an AI assistant in plain English. It builds a real component. You see it live. You change your mind. It updates. The design system stays coherent the whole time because the AI is reading from a contract you didn't have to write.
 
-## What this is, in one paragraph
-
-This is a template you copy with one click. It opens in your browser as a real coding environment (called a **Codespace**) with everything pre-installed: a working app, a design system, and an AI assistant that already understands your design system. You talk to the AI in plain English ("build me a pricing card"), it generates the component, and you see it live in the preview window. That's the whole loop.
-
-You don't need to know how to code. You need to know what you want to build.
-
-## What you need on your computer
-
-**Nothing.** Codespaces runs entirely in your browser, on GitHub's servers. You don't need VS Code, Node, or any developer tools installed locally. If you can open a browser tab, you can run this. Works in Chrome, Safari, Firefox, and Edge.
-
-The only requirement: a free GitHub account.
+This is not a tool for shipping. It's a place to get comfortable.
 
 ---
 
-## Get started — what to actually click
+## Who this is for
 
-### Step 1 — Make your copy
-
-At the top of this page, click the green **Use this template** button → **Open in a codespace**.
-
-GitHub will start building your personal copy. A new browser tab opens.
-
-### Step 2 — Wait for the setup (~60–90 seconds)
-
-You'll see a screen that looks like a code editor. **Don't panic if nothing seems to happen** — the setup is running in the background. Things you'll see:
-
-- A bottom panel called **Terminal** opens. Lots of text scrolls past. This is normal.
-- A few red error toasts may pop up in the bottom-right corner — most commonly something about **Biome** or **server initialization failed**. **Ignore them.** They appear because the editor is faster than the setup. They go away on their own within a few seconds.
-- The bottom panel will eventually quiet down and show a prompt like:
-  ```
-  @yourname → /workspaces/design-playground-template (main) $
-  ```
-  When you see that idle prompt, the setup is done.
-
-### Step 3 — Start the app
-
-In the terminal at the bottom, type this and press Enter:
-
-```
-bun dev
-```
-
-After a few seconds, a small popup appears bottom-right: **"Your application running on port 3000 is available."** Click **Open in Browser**. A new tab opens — that's your live app.
-
-You now have a real, running app that you can edit by talking to AI.
+Designers, PMs, and anyone non-technical who's been hearing about Cursor and Claude Code and wants to try designing in code — without the risk of breaking their company's real codebase. You don't need to know how to code. You need a few minutes to install a couple of things.
 
 ---
 
-## Your first build (the fun part)
+## What you'll need (one-time setup)
 
-On the right side of the editor, open the **Build with Agent** panel (look for the chat bubble icon). This is GitHub's built-in AI assistant — it comes with Codespaces and works out of the box with a free GitHub account.
+If this is your first time touching code, here's what to install, in order. **Skip any you already have.**
 
-Try saying something like:
+### 1. Node.js
+
+Node is what runs the app and the AI editors. Go to **[nodejs.org](https://nodejs.org)** → download the **LTS** version → run the installer. That's it.
+
+To check it's installed, open Terminal (Mac: `Cmd+Space` → "Terminal") and type:
+```
+node --version
+```
+You should see something like `v20.10.0`. If you do, you're good.
+
+### 2. An AI editor
+
+Pick **one**. Both work with this playground.
+
+- **[Claude Code](https://claude.com/claude-code)** — Anthropic's CLI/editor combo. The AI experience is the best of any tool right now.
+- **[Cursor](https://cursor.com)** — A polished editor with built-in AI. Easier UI if you've never used a code editor before.
+
+If you're not sure, pick **Cursor** for your first try. The interface is more familiar.
+
+### 3. The playground itself
+
+Easiest way — **download as a ZIP**:
+
+1. Click the green **Code** button at the top of this page.
+2. Click **Download ZIP**.
+3. Unzip it somewhere you'll remember (Desktop is fine).
+
+You now have a folder called `design-playground-template`. That's the playground.
+
+---
+
+## Open and run
+
+1. **Open the folder in your editor.** In Cursor or Claude Code: **File → Open Folder** → select the unzipped folder.
+
+2. **Open the terminal inside the editor.** Press `Ctrl + ` ` (backtick) or use the menu: **Terminal → New Terminal**. A panel opens at the bottom.
+
+3. **Install the dependencies.** In that terminal, type:
+   ```
+   npm install
+   ```
+   Press Enter. Wait ~30 seconds. You'll see a lot of text. That's normal.
+
+4. **Start the app.** Type:
+   ```
+   npm run dev
+   ```
+   Press Enter. After a few seconds you'll see a message like `Local: http://localhost:3000`.
+
+5. **Open the app in your browser.** Click the link in the terminal, or open a new browser tab and go to `http://localhost:3000`. You'll see the starter page.
+
+You now have a real, running app on your own computer. Nothing here can affect your company's code, your portfolio site, or anything else. It's your playground.
+
+---
+
+## Your first build
+
+Open the chat panel in your editor — it's the AI assistant.
+
+Try a prompt like:
 
 > Build me a pricing card with three tiers — Starter, Pro, Enterprise. Use the existing button and card components.
 
-The AI will write the code, save it as a file, and the preview tab will update automatically. If you don't like something, just tell it — "make the Pro card stand out more" or "use a softer shadow."
+The AI writes the code. The browser tab updates automatically. If you don't like something, just say so:
 
-**Why this works without you doing anything:**
+> Make the Pro tier stand out more.
+>
+> Use a softer shadow on all three cards.
+>
+> Add a "Most popular" badge to the middle one.
 
-This template already includes a **design system contract** — a file the AI reads before generating code. It knows what colors, spacing, and components already exist, so it uses them instead of inventing new ones. That's why your prototypes won't drift into 12 different shades of grey.
+That's the loop. Prompt, see, refine.
 
-**Prefer Claude Code or Cursor?** Both work too — clone the repo locally and open it in your editor of choice. The same design system contract is read by all three. The slash commands in `.claude/commands/` work in Claude Code, and the rules in `.cursor/rules/` work in Cursor.
+**Why this works:** the AI is reading a file called `primitiv.contract.json` that describes your design system — the colors, the spacing, the components that already exist. It builds with those instead of inventing new ones from scratch. That's why your prototypes won't drift into five shades of grey.
 
 ---
 
-## What's already set up for you
+## What's already inside
 
-You don't need to do anything with this list — it's just here so you know what's running under the hood when someone asks.
+You don't need to do anything with this list. It's here so you know what's running under the hood.
 
 | Thing | What it does |
 |---|---|
 | **Next.js** | The framework the app is built with |
 | **Tailwind** | The styling system |
-| **shadcn/ui** | A set of pre-built components (button, card, dialog, etc.) — 15 of them, ready to use |
-| **Primitiv** | The design system contract that the AI reads before generating code |
-| **GitHub Copilot** | The built-in AI chat in Codespaces. Works with a free GitHub account. |
-| **Claude Code / Cursor skills** | Pre-loaded commands and rules for Claude Code and Cursor — used if you open the project locally in either editor |
+| **shadcn/ui** | 15 pre-built components (button, card, dialog, sheet, tabs, and more) |
+| **Primitiv** | The design system contract that the AI reads |
+| **Claude Code skills** | `/plan`, `/evaluate`, `/design-thinking`, `/test-debug`, `/new-project` |
+| **Cursor rules** | UX, UI, motion, stack, and git rules pre-configured |
 
 ---
 
 ## Things that look like errors but aren't
 
-| What you see | What's actually happening |
+| What you see | What's happening |
 |---|---|
-| Red toast: "biome client: couldn't create connection" | The code formatter loaded faster than the install. It fixes itself in ~1 second. |
-| Red toast: "Server initialization failed" (Biome) | Same as above. |
-| Terminal scrolling for ~60s | Setup is running. Be patient. |
-| "Building codespace..." at the top | The very first time loads slower. Future visits are faster. |
-| Port forwarding popups | Codespaces is connecting your running app to your browser. Click **Open in Browser** when it asks. |
-
-If you ever feel stuck, close everything and re-open the Codespace from the GitHub page. Nothing breaks — your work is saved.
+| `npm install` printing lots of text | Normal. It's downloading packages. |
+| A few yellow warnings during install | Normal. They're not errors. |
+| Terminal seems frozen | Wait. Some installs take a minute. |
+| "Port 3000 already in use" when running `npm run dev` | You already have something running there. Stop it with `Ctrl+C` in the other terminal, then try again. |
+| Red squiggly lines in code files | Normal until `npm install` finishes — the editor is checking types and packages aren't downloaded yet. |
 
 ---
 
-## What to do next
+## Save your work (optional)
 
-- **Talk to the AI** in the chat panel. Ask it to build pages, components, or even whole flows.
-- **Edit by description**: "make this section feel more premium," "use more whitespace," "match the style of the rest of the app."
-- **Use the slash commands**: type `/plan` in the chat to plan a feature before building, or `/evaluate` to check whether what you built fits the design system.
-- **Save your work**: When you're happy with something, click the **Source Control** icon on the left (looks like a branching arrow), type a short message, and click **Commit & Sync**. Your changes are now saved to your repo on GitHub.
+If you want to keep what you build:
+
+- **In Cursor or Claude Code**, use the built-in **Source Control** panel on the left (looks like a branching arrow). Type a short message, click **Commit**.
+- Or just keep the folder on your computer. Everything you build is saved in real-time as files.
+
+To share your version with someone else, you can push it to a new GitHub repo. The editor will walk you through it the first time.
+
+---
+
+## No-install alternative: GitHub Codespaces
+
+If you'd rather not install Node or an editor locally, you can run this whole thing in your browser via **GitHub Codespaces**:
+
+1. Click **Use this template → Open in a codespace** at the top of this page.
+2. Wait ~3 minutes the first time for setup.
+3. Once the editor loads in your browser, you'll need to **sign into GitHub Copilot** (free tier available, 50 chat messages/month) to use the AI panel. Open the chat panel and click "Sign in."
+4. Run `bun dev` in the terminal — the preview opens automatically.
+
+This is the slower path but requires zero installs on your computer. Use it if you just want to peek.
 
 ---
 
 ## Glossary (skip if you already know)
 
-- **Codespace** — a complete coding environment that runs in your browser, on GitHub's servers. You don't install anything on your computer.
-- **Terminal** — the black/grey panel at the bottom where you type commands. You'll only need it a few times.
-- **Port 3000** — where your running app lives. Codespaces makes it accessible via a special browser URL.
-- **MCP** — the connection between the AI and your design system. You don't need to configure it; it's already set up.
-- **Repo / Repository** — your project, stored on GitHub. Each "Use this template" gives you your own.
+- **Node.js** — the runtime that runs JavaScript outside the browser. The thing the playground needs to run.
+- **npm** — Node's package installer. Comes with Node.
+- **Terminal** — the panel where you type commands. Most editors have one built in.
+- **Localhost** — your own computer, acting as a tiny server. `http://localhost:3000` is the app running on your machine, only visible to you.
+- **MCP** — the connection between the AI and your design system. Pre-configured; you don't touch it.
+- **Codespace** — a coding environment that runs in your browser, on GitHub's servers.
 
 ---
 
