@@ -109,4 +109,4 @@ If you ever feel stuck, close everything and re-open the Codespace from the GitH
 
 ---
 
-Part of the [Primitiv](https://github.com/AI-by-design/primitiv) suite — the design system contract layer for teams where designers ship code directly.
+Build with [Primitiv](https://github.com/AI-by-design/primitiv) and [Design-build workflow](https://github.com/AI-by-design/Design-workflow).
