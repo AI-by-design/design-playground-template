@@ -4,7 +4,7 @@ A sandbox where designers can play with AI and code without the pressure of touc
 
 You prompt an AI assistant in plain English. It builds a real component. You see it live. You change your mind. It updates. The design system stays coherent the whole time because the AI is reading from a contract you didn't have to write.
 
-This is not a tool for shipping. It's a place to get comfortable.
+This is not a tool for shipping. It's for playing, getting comfortable with designing in code, and experimentation.
 
 ---
 
