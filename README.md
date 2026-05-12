@@ -37,39 +37,28 @@ Pick **one**. Both work with this playground.
 
 If you're not sure, pick **Cursor** for your first try. The interface is more familiar.
 
-### 3. The playground itself
-
-Easiest way — **download as a ZIP**:
-
-1. Click the green **Code** button at the top of this page.
-2. Click **Download ZIP**.
-3. Unzip it somewhere you'll remember (Desktop is fine).
-
-You now have a folder called `design-playground-template`. That's the playground.
-
 ---
 
-## Open and run
+## Get started — one command
 
-1. **Open the folder in your editor.** In Cursor or Claude Code: **File → Open Folder** → select the unzipped folder.
+Open Terminal (Mac: `Cmd+Space` → "Terminal"). Paste this and press Enter:
 
-2. **Open the terminal inside the editor.** Press `Ctrl + ` ` (backtick) or use the menu: **Terminal → New Terminal**. A panel opens at the bottom.
+```
+npx degit AI-by-design/design-playground-template my-playground && cd my-playground && npm install && npm run dev
+```
 
-3. **Install the dependencies.** In that terminal, type:
-   ```
-   npm install
-   ```
-   Press Enter. Wait ~30 seconds. You'll see a lot of text. That's normal.
+That's it. The command downloads the playground, installs everything, and starts the app — all in one go. Takes about 30 seconds.
 
-4. **Start the app.** Type:
-   ```
-   npm run dev
-   ```
-   Press Enter. After a few seconds you'll see a message like `Local: http://localhost:3000`.
+When it's done, you'll see a line like `Local: http://localhost:3000`. **Click that link** (or open a browser tab to that URL). You'll see your live app.
 
-5. **Open the app in your browser.** Click the link in the terminal, or open a new browser tab and go to `http://localhost:3000`. You'll see the starter page.
+Now **open the folder in your editor**:
 
-You now have a real, running app on your own computer. Nothing here can affect your company's code, your portfolio site, or anything else. It's your playground.
+- **Cursor or Claude Code → File → Open Folder** → select `my-playground` (it'll be in your home folder by default).
+- Open the chat panel and start prompting.
+
+That's the whole setup. Nothing here touches your company's code or anything else on your computer. It's a sandbox in your home folder. Delete the folder when you're done; nothing breaks.
+
+> **Prefer to do it manually?** Download the repo as a ZIP from the green **Code** button → unzip it → open the folder in your editor → open the editor's terminal → run `npm install` and `npm run dev`. Same result, more clicks.
 
 ---
 
