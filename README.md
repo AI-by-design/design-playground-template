@@ -2,13 +2,19 @@
 
 A ready-to-use environment for designing with AI in your browser. No installs. No setup. No terminal commands to memorize.
 
-If you've ever wanted to prototype a UI with Claude or Copilot but got stuck on "how do I run this on my computer?" — this is for you.
+If you've ever wanted to prototype a UI with AI but got stuck on "how do I run this on my computer?" — this is for you.
 
 ## What this is, in one paragraph
 
 This is a template you copy with one click. It opens in your browser as a real coding environment (called a **Codespace**) with everything pre-installed: a working app, a design system, and an AI assistant that already understands your design system. You talk to the AI in plain English ("build me a pricing card"), it generates the component, and you see it live in the preview window. That's the whole loop.
 
 You don't need to know how to code. You need to know what you want to build.
+
+## What you need on your computer
+
+**Nothing.** Codespaces runs entirely in your browser, on GitHub's servers. You don't need VS Code, Node, or any developer tools installed locally. If you can open a browser tab, you can run this. Works in Chrome, Safari, Firefox, and Edge.
+
+The only requirement: a free GitHub account.
 
 ---
 
@@ -48,7 +54,7 @@ You now have a real, running app that you can edit by talking to AI.
 
 ## Your first build (the fun part)
 
-Open the **chat panel** on the right side of the editor (looks like a chat bubble icon). It's the AI assistant.
+On the right side of the editor, open the **Build with Agent** panel (look for the chat bubble icon). This is GitHub's built-in AI assistant — it comes with Codespaces and works out of the box with a free GitHub account.
 
 Try saying something like:
 
@@ -59,6 +65,8 @@ The AI will write the code, save it as a file, and the preview tab will update a
 **Why this works without you doing anything:**
 
 This template already includes a **design system contract** — a file the AI reads before generating code. It knows what colors, spacing, and components already exist, so it uses them instead of inventing new ones. That's why your prototypes won't drift into 12 different shades of grey.
+
+**Prefer Claude Code or Cursor?** Both work too — clone the repo locally and open it in your editor of choice. The same design system contract is read by all three. The slash commands in `.claude/commands/` work in Claude Code, and the rules in `.cursor/rules/` work in Cursor.
 
 ---
 
@@ -72,7 +80,8 @@ You don't need to do anything with this list — it's just here so you know what
 | **Tailwind** | The styling system |
 | **shadcn/ui** | A set of pre-built components (button, card, dialog, etc.) — 15 of them, ready to use |
 | **Primitiv** | The design system contract that the AI reads before generating code |
-| **Claude Code / Cursor skills** | Pre-loaded commands like `/plan`, `/evaluate`, `/design-thinking` |
+| **GitHub Copilot** | The built-in AI chat in Codespaces. Works with a free GitHub account. |
+| **Claude Code / Cursor skills** | Pre-loaded commands and rules for Claude Code and Cursor — used if you open the project locally in either editor |
 
 ---
 
@@ -101,7 +110,7 @@ If you ever feel stuck, close everything and re-open the Codespace from the GitH
 
 ## Glossary (skip if you already know)
 
-- **Codespace** — a complete coding environment that runs in your browser. You don't install anything on your computer.
+- **Codespace** — a complete coding environment that runs in your browser, on GitHub's servers. You don't install anything on your computer.
 - **Terminal** — the black/grey panel at the bottom where you type commands. You'll only need it a few times.
 - **Port 3000** — where your running app lives. Codespaces makes it accessible via a special browser URL.
 - **MCP** — the connection between the AI and your design system. You don't need to configure it; it's already set up.
