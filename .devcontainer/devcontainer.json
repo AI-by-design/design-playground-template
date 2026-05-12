@@ -1,0 +1,25 @@
+{
+  "name": "Design Playground",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "postCreateCommand": "npm install -g bun && bun install && npm install -g @ai-by-design/primitiv && primitiv build && mkdir -p ~/.claude/commands && cp -r .claude/commands/* ~/.claude/commands/ 2>/dev/null || true",
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "App preview",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "biomejs.biome",
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "editor.defaultFormatter": "biomejs.biome",
+        "editor.formatOnSave": true
+      }
+    }
+  }
+}
